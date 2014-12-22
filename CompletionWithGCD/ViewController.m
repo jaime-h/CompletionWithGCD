@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (strong, nonatomic) IBOutlet UILabel *countsFinished;
 
 @end
 
@@ -16,7 +17,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+
+    int x = 1;
+    while (x < 10001)
+    {
+        NSLog(@"%i", x);
+        x++;
+    }
+    self.countsFinished.text = @"Ten Thousand Counts Finished";
+
 }
 
 - (void)didReceiveMemoryWarning {
