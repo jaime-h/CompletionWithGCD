@@ -26,8 +26,10 @@
             NSLog(@"%i", x);
             x++;
         }
-        self.countsFinished.text = @"Ten Thousand Counts Finished";
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.countsFinished.text = @"Ten Thousand Counts Finished";
+
+        });
 
     });
 }
