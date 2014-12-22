@@ -17,16 +17,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    dispatch_queue_t countQueue = dispatch_queue_create("counter", NULL);
+    dispatch_async(countQueue, ^{
+        int x = 1;
+        while (x < 10001)
+        {
+            NSLog(@"%i", x);
+            x++;
+        }
+        self.countsFinished.text = @"Ten Thousand Counts Finished";
+        
 
-
-    int x = 1;
-    while (x < 10001)
-    {
-        NSLog(@"%i", x);
-        x++;
-    }
-    self.countsFinished.text = @"Ten Thousand Counts Finished";
-
+    });
 }
 
 - (void)didReceiveMemoryWarning {
